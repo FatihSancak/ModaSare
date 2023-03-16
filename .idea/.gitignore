@@ -8,3 +8,5 @@
 /dataSources.local.xml
 /FehmiUyar
 /lib
+*.jpg
+/inc/conn.php

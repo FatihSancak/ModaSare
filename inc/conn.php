@@ -268,6 +268,8 @@ function getModelSelect()
     return $options;
 }
 
+
+
 function setHareket($modelID, $hareketSayi, $hareketTarihi)
 {
     global $servername;
