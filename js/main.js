@@ -1,22 +1,21 @@
-(function ($) {
+function ($) {
 
-	"use strict";
+    "use strict";
 
-})
-(jQuery);
+}
 
+function () {
+    $('#datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+    });
+}
 
-$(function () {
-	$('#datepicker').datepicker({
-		format:'dd/mm/yyyy'
-	});
-});
-
-$(function(){
+function () {
     $('#datapicker').datepicker({
         "setDate": new Date(),
         "autoclose": true
     });
-  });
+}
+
 
 

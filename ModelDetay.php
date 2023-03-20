@@ -28,26 +28,26 @@ $uretimAdedi = $row["kesimAdedi"]
     <div class="container">
         <!-- MODEL SEÇİMİ VE MALİYET EKLEME -->
         <div class="row">
-            <div class="col-sm-9 mt-3">
+            <div class="col-sm-8 mt-3">
                 <select class="form-select mb-3 form-select-sm" name="modeller" id="modeller"
                         onchange="this.options[this.selectedIndex].value != '' ? location = this.options[this.selectedIndex].value : false">
                     <option value="/ModelListe.php" selected>Diğer Modeller</option>
                     <?= getModelMaliyetSelect() ?>
                 </select>
             </div>
-            <div class="col-sm-3 mt-2">
-                <a href="MaliyetEkle.php?ModelID=<?= $modelID ?>"
-                   class="btn btn-outline-primary m-1"
-                   data-bs-target="#exampleModal"
-                   data-bs-whatever="@mdo">
-                    Maliyet Ekle</a>
+            <div class="col-sm-4 mt-2 btn-groupl">
+                <a href="MaliyetEkle.php?ModelID=<?= $modelID ?>" class="btn btn-primary">Maliyet Ekle</a>
+                <a href="HareketEkle.php?ModelID=<?= $modelID ?>" class="btn btn-success">Hareket Ekle</a>
+                <a href="ModelSil.php?ModelID=<?= $modelID ?>" class="btn btn-danger">Sil</a>
             </div>
+
         </div>
         <!-- MODEL SEÇİMİ VE MALİYET EKLEME BİTTİ -->
 
 
         <div class="row">
-            <div class="mb-3 mt-1">        <!--  MODEL ADI VE KUMAŞ BİLGİSİ ALANI  -->
+            <div class="mb-3 mt-1">
+                <!--  MODEL ADI VE KUMAŞ BİLGİSİ ALANI  -->
                 <div class="col-mt-2 border-bottom">
                     <h5 class="card-title"><?= $row["modelAdi"] ?>-><small><?= $row["kumasCinsi"] ?></small></h5>
                 </div>
@@ -98,7 +98,8 @@ $uretimAdedi = $row["kesimAdedi"]
                         <div class="accordion accordion-flush col-11" id="accordionFlush">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed bg-danger-subtle" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button collapsed bg-danger-subtle" type="button"
+                                            data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapseOne" aria-expanded="false"
                                             aria-controls="flush-collapseOne">
                                         Maliyetler
@@ -112,7 +113,9 @@ $uretimAdedi = $row["kesimAdedi"]
                                         $sql = "SELECT
            maliyetbaslik.maliyetAdi, 
            maliyetler.maliyetFiyat, 
-           maliyetler.maliyetTarihi, 
+           maliyetler.maliyetTarihi,
+           maliyetler.maliyetID,
+           maliyetler.maliyetBaslikID,
            model.modelAdi, 
         model.modelID
         FROM
@@ -130,11 +133,29 @@ $uretimAdedi = $row["kesimAdedi"]
                                         while ($row = $result->fetch_assoc()) {
                                             ?>
 
-                                            <div class="row mb-2 btn-outline-warning text-dark border-bottom">
+                                            <div class="row mb-1 mt-1 border-bottom">
+                                                <?php
+                                                if ($row["maliyetBaslikID"]!=1){
+                                                ?>
+                                                <div class="col-md-2">
+                                                    <a href="MaliyetSil.php?MaliyetID=<?= $row["maliyetID"] ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                                </div>
+                                                <?php
+                                                }else{
+                                                ?>
+                                                <div class="col-md-2 mb-1 mt-1 ">
+                                                    <button class="btn btn-outline-success">
+                                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                                    </button>
+                                                </div>
+
+                                                    <?php
+                                                }
+                                                    ?>
                                                 <div class="col-md-2">
                                                     <small><?= tarihCevir($row["maliyetTarihi"]) ?></small></div>
                                                 <div class="col-md-4"><?= $row["maliyetAdi"] ?></div>
-                                                <div class="col-md-6 text-end"><?= rakam($row["maliyetFiyat"]) ?>₺
+                                                <div class="col-md-4 text-end"><?= rakam($row["maliyetFiyat"]) ?>₺
                                                 </div>
                                             </div>
                                             <?php
@@ -169,7 +190,8 @@ $uretimAdedi = $row["kesimAdedi"]
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed bg-warning-subtle" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button collapsed bg-warning-subtle" type="button"
+                                            data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                             aria-controls="flush-collapseTwo">
                                         Ürün Hareketleri
@@ -184,8 +206,9 @@ $uretimAdedi = $row["kesimAdedi"]
                                                 </div>
                                             </div>
                                             <div class="row btn-outline-dark">
-                                                <div class="col-6">Tarih</div>
-                                                <div class="col-6">Adet</div>
+                                                <div class="col-2">&nbsp;</div>
+                                                <div class="col-5">Tarih</div>
+                                                <div class="col-5">Adet</div>
                                             </div>
                                             <?php getModelHareket($modelID); ?>
                                         </div>

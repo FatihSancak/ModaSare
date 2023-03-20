@@ -64,6 +64,7 @@ if ($_POST) {
                 <div class="mb-3 row">
                     <label class="form-label col-sm-3" for="maliyetBaslik"></label>
                     <div class="col-sm-9 ">
+                        <button type="button" class="btn btn-danger btn-xs" onclick="history.back()">Vazgeç</button>
                         <button type="submit" class="btn btn-success btn-xs">Maliyeti Ekle
                     </div>
                 </div>

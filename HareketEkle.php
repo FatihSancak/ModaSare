@@ -48,10 +48,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
             </div>
 
             <div class="row">
-                <div class="col-10"></div>
-                <div class="col-2">
-                    <button type="reset" class="btn-danger rounded-1">Temizle</button>
-                    <button type="submit" name="save" class="btn-success rounded-1">Kaydet</button>
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                    <button type="reset" class="btn btn-danger" onclick="history.back()">Vazgeç</button>
+                    <button type="submit" name="save" class="btn btn-success">Kaydet</button>
                 </div>
             </div>
 

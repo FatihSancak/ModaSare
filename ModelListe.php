@@ -108,11 +108,12 @@ include_once 'inc/top.php';
                                         <a href="MaliyetEkle.php?ModelID=<?= $satir['modelID'] ?>" class="btn btn-outline-primary m-1" data-bs-target="#exampleModal"
                                             data-bs-whatever="@mdo">
                                             Maliyet Ekle</a>
-                                        <!-- <a href="ModelGuncelle.php?ModelID=<?= $satir['modelID'] ?>"
-                                            class="btn btn-outline-danger m-1">Güncelle</a> -->
+                                         <a href="ModelSil.php?ModelID=<?= $satir['modelID'] ?>"
+                                            class="btn btn-outline-danger m-1">Sil</a>
                                         <a href="ModelDetay.php?ModelID=<?= $satir['modelID'] ?>"
                                             class="btn btn-outline-dark m-1">Detay</a>
-
+                                        <a href="ModelGuncelle.php?ModelID=<?= $satir['modelID'] ?>"
+                                           class="btn btn-outline-info m-1">Güncelle</a>
                                     </div>
                                 </td>
                             </tr>
