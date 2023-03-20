@@ -16,18 +16,20 @@ if (isset($_POST['save']) && isset($_FILES["modelFile"])) {
    
     $maliyetBaslikID = 1; // MALİYET BAŞLIKLARINDAN KUMASA KARSILIK GELEN ID 1 OLDUĞUNDAN TEMEL MALİYET EKLENİYOR
     $maliyetTarihi = $_POST['kesimTarihi']; // KESİMİN YAPILDIĞI TARİH 
-    $kumasFiyati = $_POST['kumasFiyati']; // KUMAS FIYATI  
+    $kumasFiyati = $_POST['kumasFiyati']; // KUMAS FIYATI
+    $kumasFiyati = (float) str_replace(",",".",$kumasFiyati);
 
     // maliyet hesapla
 
 
-    $kumasBirimMaliyeti = ($kumasMiktari / $kesimAdedi) * $kumasFiyati; 
+
+    $kumasBirimMaliyeti = ((float)$kumasMiktari / (float)$kesimAdedi) * ($kumasFiyati);
 
     echo $kumasBirimMaliyeti;
 
 
-    $ekle = $db->prepare("INSERT INTO model (modelAdi,kesimTuru,kesimAdedi,kumasCinsi,kumasMiktari) VALUES 
-            ('" . $modelAdi . "','" . $kesimTuru . "','" . $kesimAdedi . "','" . $kumasCinsi . "','" . $kumasMiktari . "')");
+    $ekle = $db->prepare("INSERT INTO model (modelAdi,kesimTuru,kesimAdedi,kumasCinsi, kumasMiktari, kumasFiyat) VALUES 
+            ('" . $modelAdi . "','" . $kesimTuru . "','" . $kesimAdedi . "','" . $kumasCinsi . "','" . $kumasMiktari . "', '" . $kumasFiyati . "')");
     $ekle->execute();
 
 
@@ -99,14 +101,14 @@ go("ModelListe.php",0);
         <div class="form-group row">
             <label for="kumasMiktari" class="col-sm-2 col-form-label">Kumaş Miktarı</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="kumasMiktari" name="kumasMiktari" placeholder="Kumaş Miktarı">
+                <input type="text" class="form-control" id="kumasMiktari" name="kumasMiktari" placeholder="Kumaş Miktarı (Bu alanda ondalık için virgül ( , ) yerine ( . ) NOKTA kullanmalısınız.">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="kumasFiyati" class="col-sm-2 col-form-label">Kumaş Fiyatı</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="kumasFiyati" name="kumasFiyati" placeholder="Kumaş Fiyatı">
+                <input type="text" class="form-control" id="kumasFiyati" name="kumasFiyati" placeholder="Kumaş Fiyatı (Bu alanda ondalık için virgül ( , ) yerine ( . ) NOKTA kullanmalısınız.">
             </div>
         </div>
 
@@ -154,10 +156,12 @@ go("ModelListe.php",0);
             </div>
         </div>
         <!-- Dosya işlemleri sonu -->
-        <div class="row">
-            <div class="ml-auto">
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <div class="ml-auto">
                 <button type="reset" class="btn-danger btn-lg">Temizle</button>
                 <button type="submit" name="save" class="btn-success btn-lg">Kaydet</button>
+                </div>
             </div>
         </div>
     </form>

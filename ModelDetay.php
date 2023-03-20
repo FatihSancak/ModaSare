@@ -201,7 +201,5 @@ $uretimAdedi = $row["kesimAdedi"]
     </div>
 
 <?php
-include_once "inc/model.php";
-include_once "inc/hareket.php";
 include_once "inc/bottom.php";
 ?>

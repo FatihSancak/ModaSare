@@ -2,7 +2,8 @@
 
 	"use strict";
 
-})(jQuery);
+})
+(jQuery);
 
 
 $(function () {
@@ -17,4 +18,5 @@ $(function(){
         "autoclose": true
     });
   });
+
 
