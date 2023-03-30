@@ -6,17 +6,27 @@ $modelInfo = getModel($_GET["ModelID"]);
 
 if($_SERVER["REQUEST_METHOD"]=="POST") {
 
-    $model = array(
-        'modelAdi'=> $_POST["modelName"],
-        'kesimTuru'=> $_POST["kumasBirimi"],
-        'kesimAdedi'=> $_POST["kesimAdedi"],
-        'kumasCinsi'=> $_POST["kumasCinsi"],
-        'kumasMiktari'=> $_POST["kumasMiktari"],
-        'kumasFiyat'=> $_POST["kumasFiyati"],
-        'modelID'=> $_GET["ModelID"]
-    );
+//    $model = array(
+//        'modelAdi'=> $_POST["modelName"],
+//        'kesimTuru'=> $_POST["kumasBirimi"],
+//        'kesimAdedi'=> $_POST["kesimAdedi"],
+//        'kumasCinsi'=> $_POST["kumasCinsi"],
+//        'kumasMiktari'=> $_POST["kumasMiktari"],
+//        'kumasFiyat'=> $_POST["kumasFiyati"],
+//        'modelID'=> $_GET["ModelID"]
+//    );
+//
+//    setModelGuncelle($model);
 
-    setModelGuncelle($model);
+
+    updateModel($_GET["ModelID"],$_POST["modelName"],
+        $_POST["kumasBirimi"],$_POST["kesimAdedi"],
+        $_POST["kumasCinsi"],$_POST["kumasMiktari"],
+        $_POST["kumasFiyati"],$_FILES["modelFile"],$_POST["karMarji"]);
+
+    updateMaliyet($_GET["ModelID"]);
+
+    go("/ModelDetay.php?ModelID=".$_GET["ModelID"]);
 
 }
 ?>
@@ -26,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
             <h2 class="border-bottom border-dark no-fixed ">Model Güncelle</h2>
         </div>
         <!-- Form Elemanları Başlangıcı -->
-        <form action="#" method="post">
+        <form action="#" method="post" enctype="multipart/form-data">
 
             <div class="form-group row">
                 <label for="productName" class="col-sm-2 col-form-label">Model Adı</label>
@@ -96,6 +106,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="karMarji" class="col-form-label col-sm-2">Kar Marjı</label>
+                <div class="col-sm-10">
+                    <div class="input">
+                        <input type="text" name="karMarji" class="form-control" id="karMarji" value="<?= $modelInfo['karMarji'] ?>">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dosya İşlemleri -->
+            <div class="form-group row">
+
+                <label for="formFile" class="col-form-label col-sm-2">Model Resmi</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="customFile" name="modelFile">
+                </div>
+            </div>
+            <!-- Dosya işlemleri sonu -->
 
             <div class="form-group row">
                 <div class="col-sm-10">

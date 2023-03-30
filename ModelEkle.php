@@ -12,6 +12,7 @@ if (isset($_POST['save']) && isset($_FILES["modelFile"])) {
     $kesimAdedi = $_POST['kesimAdedi']; // KESİM ADEDİ
     $kumasCins = $_POST['kumasCinsi']; // KUMAS CINSI
     $kumasMiktari = $_POST['kumasMiktari']; // KULLANILAN KUMAS MIKTARI (KG/MT)
+    $karMarji= $_POST['karMarji']; // KAR MARJI
 
     $maliyetBaslikID = 1; // MALİYET BAŞLIKLARINDAN KUMASA KARSILIK GELEN ID 1 OLDUĞUNDAN TEMEL MALİYET EKLENİYOR
     $maliyetTarihi = $_POST['kesimTarihi']; // KESİMİN YAPILDIĞI TARİH 
@@ -20,8 +21,8 @@ if (isset($_POST['save']) && isset($_FILES["modelFile"])) {
     $kumasBirimMaliyeti = ((float)$kumasMiktari / (float)$kesimAdedi) * ($kumasFiyati);
 
     // MODEL EKLENDİ
-    $ekle = $db->prepare("INSERT INTO model (modelAdi,kesimTuru,kesimAdedi, kumasCinsi, kumasMiktari, kumasFiyat) VALUES 
-            ('" . $modelAdi . "','" . $kesimTuru . "','" . $kesimAdedi . "','" . $kumasCins . "','" . $kumasMiktari . "', '" . $kumasFiyati . "')");
+    $ekle = $db->prepare("INSERT INTO model (modelAdi,kesimTuru,kesimAdedi, kumasCinsi, kumasMiktari, kumasFiyat, karMarji) VALUES 
+            ('" . $modelAdi . "','" . $kesimTuru . "','" . $kesimAdedi . "','" . $kumasCins . "','" . $kumasMiktari . "', '" . $kumasFiyati . "', '".$karMarji."')");
     $ekle->execute();
 
     $model_ID = $db->lastInsertId();
@@ -113,6 +114,14 @@ go("ModelListe.php",0);
                         <input class="form-check-input" type="radio" name="kumasBirimi" id="inlineRadio2" value="kg"
                                checked>
                         <label class="form-check-label" for="kg">Kilogram</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="karMarji" class="col-form-label col-sm-2">Kar Marjı</label>
+                <div class="col-sm-10">
+                    <div class="input">
+                        <input type="text" name="karMarji" class="form-control" id="karMarji">
                     </div>
                 </div>
             </div>

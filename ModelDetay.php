@@ -28,17 +28,18 @@ $uretimAdedi = $row["kesimAdedi"]
     <div class="container">
         <!-- MODEL SEÇİMİ VE MALİYET EKLEME -->
         <div class="row">
-            <div class="col-sm-8 mt-3">
+            <div class="col-sm-7 mt-3">
                 <select class="form-select mb-3 form-select-sm" name="modeller" id="modeller"
                         onchange="this.options[this.selectedIndex].value != '' ? location = this.options[this.selectedIndex].value : false">
                     <option value="/ModelListe.php" selected>Diğer Modeller</option>
                     <?= getModelMaliyetSelect() ?>
                 </select>
             </div>
-            <div class="col-sm-4 mt-2 btn-groupl">
+            <div class="col-sm-5 mt-2 btn-groupl">
                 <a href="MaliyetEkle.php?ModelID=<?= $modelID ?>" class="btn btn-primary">Maliyet Ekle</a>
                 <a href="HareketEkle.php?ModelID=<?= $modelID ?>" class="btn btn-success">Hareket Ekle</a>
                 <a href="ModelSil.php?ModelID=<?= $modelID ?>" class="btn btn-danger">Sil</a>
+                <a href="ModelGuncelle.php?ModelID=<?= $modelID ?>" class="btn btn-info m-1">Güncelle</a>
             </div>
 
         </div>
@@ -89,6 +90,13 @@ $uretimAdedi = $row["kesimAdedi"]
                                 <div class="col-md-3 col-sm-12 text-center">Birim Maliyet</div>
                                 <div class="col-md-9 col-sm-12 text-center"><a href="#"
                                                                                class="btn btn-danger mb-2"><?= rakam(getBirimMaliyet($modelID)) ?>
+                                        ₺</a>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-3 col-sm-12 text-center">Satış Fiyatı <span class="badge text-bg-success">% <?=$row["karMarji"]?></span></div>
+                                <div class="col-md-9 col-sm-12 text-center"><a href="#"
+                                                                               class="btn text-bg-success mb-2"><?= rakam(getBirimMaliyet($modelID)+(getBirimMaliyet($modelID)*$row["karMarji"]/100)) ?>
                                         ₺</a>
                                 </div>
                             </div>
