@@ -1,12 +1,9 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-/FehmiUyar
-/lib
-*.jpg
 /inc/conn.php
+/.idea
+/.well-known
+/dbmodasare
+/lib
+/css
+/js
+*.png
+*.jpg
