@@ -1,6 +1,6 @@
 /inc/conn.php
-/.idea
-/.well-known
+/.idea/*
+/.well-known/*
 /dbmodasare
 /lib
 /css
