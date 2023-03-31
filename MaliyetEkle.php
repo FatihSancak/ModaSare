@@ -55,9 +55,9 @@ if ($_POST) {
                 </div>
                 <!-- date  -->
                 <div class="mb-3 row">
-                    <label class="col-form-label col-sm-3" for="startDate">Maliyet Tarihi</label>
+                    <label class="col-form-label col-sm-3" for="datepicker">Maliyet Tarihi</label>
                     <div class="form-label col-sm-9">
-                        <input type="date" name="maliyetTarihi" class="form-control" id="datepicker" />
+                        <input type="date" name="maliyetTarihi" class="form-control" id="date" />
                     </div>
                 </div>
                 <!-- submit -->
@@ -78,7 +78,11 @@ if ($_POST) {
     </div>
 </div>
 </div>
-
+    <script>
+        $(function(){
+            $("#datepicker").datepicker("setDate", new Date());
+        });
+    </script>
 
 <?php
 include_once "inc/bottom.php";

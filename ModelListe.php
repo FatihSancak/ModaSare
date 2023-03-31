@@ -97,7 +97,7 @@ include_once 'inc/top.php';
                                     <small>
                                         Toplam : <?php
                                         $tm = getBirimMaliyet($satir['modelID'])* $satir['kesimAdedi'];
-                                        $tm= rakam((float)$tm);
+                                        $tm= number_format((float)$tm,2,",",".");
                                         echo($tm);
                                         ?> ₺ <br>
                                     </small>

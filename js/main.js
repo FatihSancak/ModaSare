@@ -4,18 +4,8 @@ function ($) {
 
 }
 
-function () {
-    $('#datepicker').datepicker({
-        format: 'dd/mm/yyyy'
-    });
-}
-
-function () {
-    $('#datapicker').datepicker({
-        "setDate": new Date(),
-        "autoclose": true
-    });
-}
-
-
-
+$( function() {
+    $("#datepicker").datepicker();
+    $("#datepicker").datepicker('setDate','today');
+    $("#datepicker").datepicker('format', 'dd/mm/yyyy');
+} )

@@ -181,11 +181,11 @@ $uretimAdedi = $row["kesimAdedi"]
                                         </div>
 
                                         <div class="row mb-2 btn-outline-danger border-bottom">
-                                            <div class="col-md-4">TOPLAM MODEL MALİYETİ</div>
+                                            <div class="col-md-4">Toplam Model Maliyeti</div>
                                             <div class="col-md-8 text-end"><?php
                                                 $tm = getBirimMaliyet($modelID);
                                                 $tm = getToplamMaliyet($tm, $uretimAdedi);
-                                                //$tm= rakam((float)$tm);
+                                                $tm= number_format(((float)$tm),2,",",".");
                                                 echo($tm);
                                                 ?> ₺
                                             </div>
