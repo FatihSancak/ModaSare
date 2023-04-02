@@ -3,6 +3,9 @@ include_once 'inc/logCheck.php';
 include_once 'inc/conn.php';
 include_once 'inc/top.php';
 
+$bugunun_tarihi = date("Y-m-d");
+
+
 // Maliyetler listesini getir
 $options = getMaliyetler();
 
@@ -57,7 +60,7 @@ if ($_POST) {
                 <div class="mb-3 row">
                     <label class="col-form-label col-sm-3" for="datepicker">Maliyet Tarihi</label>
                     <div class="form-label col-sm-9">
-                        <input type="date" name="maliyetTarihi" class="form-control" id="date" />
+                        <input type="date" name="maliyetTarihi" value="<?php echo $bugunun_tarihi; ?>" class="form-control" id="date" />
                     </div>
                 </div>
                 <!-- submit -->

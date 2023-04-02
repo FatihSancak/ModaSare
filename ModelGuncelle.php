@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     <!-- Container Start -->
     <div class="container col-10 mt-3">
         <div>
-            <h2 class="border-bottom border-dark no-fixed ">Model Güncelle</h2>
+            <h4 class="border-bottom border-dark no-fixed ">Model Güncelle</h4>
         </div>
         <!-- Form Elemanları Başlangıcı -->
         <form action="#" method="post" enctype="multipart/form-data">

@@ -24,6 +24,9 @@ if ($_POST) {
         <form method="post" action="/MaliyetBaslikEkle.php">
             <div class="col">
                 <div class="row">
+                    <h3 class="border-bottom border-dark no-fixed ">Yeni Maliyet Türü Ekleme</h3>
+                </div>
+                <div class="row">
 
                     <?php
                     if ($isRecord != "") {

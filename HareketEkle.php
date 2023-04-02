@@ -2,6 +2,7 @@
 include_once 'inc/logCheck.php';
 include_once 'inc/conn.php';
 include_once 'inc/top.php';
+$bugunun_tarihi = date("Y-m-d");
 
 if($_SERVER["REQUEST_METHOD"]=="POST") {
     //echo $_POST["modelID"]."-". $_POST["gelenUrunAdedi"]."-". $_POST["hareketTarihi"];
@@ -13,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     <!-- Container Start -->
     <div class="container col-10 mt-3">
         <div class="row">
-            <h2 class="border-bottom border-dark no-fixed ">Model Yeni Hareket Ekleme</h2>
+            <h3 class="border-bottom border-dark no-fixed ">Model Yeni Hareket Ekleme</h3>
         </div>
         <!-- Form Elemanları Başlangıcı -->
         <form action="HareketEkle.php" method="post">
@@ -42,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
                 <div class="col-sm-10">
                     <div class="input-group date" id="datepicker">
 
-                        <input type="date" name="hareketTarihi" class="form-control" id="datepicker"/>
+                        <input type="date" name="hareketTarihi" value="<?php echo $bugunun_tarihi; ?>"  class="form-control" id="datepicker"/>
                     </div>
                 </div>
             </div>

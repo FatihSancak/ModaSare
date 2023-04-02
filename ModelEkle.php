@@ -2,6 +2,8 @@
 include_once 'inc/logCheck.php';
 include_once 'inc/conn.php';
 include_once 'inc/top.php';
+$bugunun_tarihi = date("Y-m-d");
+
 
 // MALİYET BAŞLIĞI EKLEME 
 
@@ -60,7 +62,7 @@ go("ModelListe.php",0);
     <!-- Container Start -->
     <div class="container col-10 mt-3">
         <div>
-            <h2 class="border-bottom border-dark no-fixed ">Model Ekleme</h2>
+            <h4 class="border-bottom border-dark no-fixed ">Yeni Model</h4>
         </div>
         <!-- Form Elemanları Başlangıcı -->
         <form action="#" method="post" enctype="multipart/form-data">
@@ -75,7 +77,7 @@ go("ModelListe.php",0);
             <div class="form-group row">
                 <label for="kumasCinsi" class="col-sm-2 col-form-label">Kumaş Cinsi</label>
                 <div class="col-sm-10">
-                    <input type="test" class="form-control" id="kumas" name="kumasCinsi" placeholder="Kumaş Cinsi">
+                    <input type="text" class="form-control" id="kumas" name="kumasCinsi" placeholder="Kumaş Cinsi">
                 </div>
             </div>
 
@@ -129,11 +131,10 @@ go("ModelListe.php",0);
 
             <!--   Tarih    -->
             <div class="form-group row">
-                <label for="startDate" class="col-form-label col-sm-2">Kesim Tarihi</label>
+                <label for="datepicker" class="col-form-label col-sm-2">Kesim Tarihi</label>
                 <div class="col-sm-10">
-                    <div class="input-group date" id="datepicker">
-
-                        <input type="date" name="kesimTarihi" class="form-control" id="datepicker"/>
+                    <div class="input-group date">
+                        <input type="date" name="kesimTarihi" class="form-control" value="<?php echo $bugunun_tarihi; ?>"  id="datepicker"/>
                     </div>
                 </div>
             </div>

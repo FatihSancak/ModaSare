@@ -1,5 +1,5 @@
 <?php
-include 'inc/rout.php';
+include './inc/rout.php';
 ?>
 <!DOCTYPE html>
 <html lang="tr">
@@ -10,7 +10,6 @@ include 'inc/rout.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/bootstrap-min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -48,10 +47,32 @@ include 'inc/rout.php';
 
                 ?>
                 <div class="navbar-nav  ml-auto">
+
+
                     <a class="nav-link" aria-current="page" href="ModelListe.php">Ana Sayfa</a>
-                    <a class="nav-link" href="ModelEkle.php">Model Ekle</a>
-                    <a class="nav-link" href="MaliyetBaslikEkle.php">Maliyet Türü Ekle</a>
-                    <a class="nav-link" href="HareketEkle.php">Hareket Ekle</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Model İşlemleri
+                        </a>
+                        <ul class="nav-item dropdown-menu">
+                            <li><a class="dropdown-item" href="../ModelListe.php">Model Listesi</a></li>
+                            <li><a class="dropdown-item" href="../ModelEkle.php">Yeni Model Ekle</a></li>
+                            <li><a class="dropdown-item" href="../MaliyetBaslikEkle.php">Maliyet Türü Ekle</a></li>
+                            <li><a class="dropdown-item" href="../HareketEkle.php">Hareket Ekle</a></li>
+                            <!--<li><hr class="dropdown-divider"></li>-->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Cari İşlemler
+                        </a>
+                        <ul class="nav-item dropdown-menu">
+                            <li><a class="dropdown-item" href="../Cari_Liste.php">Liste</a></li>
+                            <li><a class="dropdown-item" href="../Cari_Ekle.php">Yeni Cari Ekle</a></li>
+                            <li><a class="dropdown-item" href="../Cari_Hareket_Ekle.php">Hareket Ekle</a></li>
+                            <!--<li><hr class="dropdown-divider"></li>-->
+                        </ul>
+                    </li>
                     <a class="nav-link" href="LogOut.php">Çıkış</a>
 
                 </div>

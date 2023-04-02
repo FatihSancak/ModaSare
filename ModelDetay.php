@@ -95,9 +95,9 @@ $uretimAdedi = $row["kesimAdedi"]
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3 col-sm-12 text-center">Satış Fiyatı <span class="badge text-bg-success">% <?=$row["karMarji"]?></span></div>
-                                <div class="col-md-9 col-sm-12 text-center"><a href="#"
-                                                                               class="btn text-bg-success mb-2"><?= rakam(getBirimMaliyet($modelID)+(getBirimMaliyet($modelID)*$row["karMarji"]/100)) ?>
-                                        ₺</a>
+                                <div class="col-md-9 col-sm-12 text-center"><a href=""
+                                                                               class="btn mb-3" style="background-color: #0dcaf0;" ><h5><b><?= rakam(getBirimMaliyet($modelID)+(getBirimMaliyet($modelID)*$row["karMarji"]/100)) ?></b>
+                                        ₺</h5></a>
                                 </div>
                             </div>
                         </div>
