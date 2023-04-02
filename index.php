@@ -48,7 +48,7 @@ include_once 'inc/conn.php';
 
                                     echo ('<div class="alert alert-success">Giriş başarılı, yönlendiriliyorsunuz...</div>');
 
-                                    header("refresh:1,url=/ModelListe.php");
+                                    header("refresh:1,url=/Gate.php");
                                 } else {
                                     echo ('<div class="alert alert-danger">Bu bilgilere ait kullanıcı bulunamadı</div>');
                                 }

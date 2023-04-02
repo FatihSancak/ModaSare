@@ -20,7 +20,7 @@ if ($borc > $alacak) {
         </div>
         <div class="row">
             <div class="col-sm-6 float-left"><h5 class="border-bottom"><?= $cari_adi ?></h5></div>
-            <div class="col-sm-1 text-right">Müşteri Seç :</div>
+            <div class="col-sm-1 text-right">Müşteriler:</div>
             <div class="col-sm-5 text-right">
                     <select class="form-select mb-3 form-select-sm" name="cariler" id="cariler"
                             onchange="this.options[this.selectedIndex].value != '' ? location = this.options[this.selectedIndex].value : false">

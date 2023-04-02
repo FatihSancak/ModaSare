@@ -14,7 +14,7 @@ if (isset($_POST["save"])) {
 ?>
     <div class="container col-10 mt-3">
         <div>
-            <h3 class="border-bottom border-dark no-fixed ">Cari Hareket Ekle</h3>
+            <h3 class="border-bottom border-dark no-fixed ">Cari Hareket Güncelleme</h3>
         </div>
         <!-- Form Elemanları Başlangıcı -->
         <form action="#" method="post">

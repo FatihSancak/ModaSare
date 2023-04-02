@@ -24,11 +24,11 @@ include './inc/rout.php';
         <?php
         if ($_SESSION['isLogin']) {
         ?>
-        <a class="navbar-brand" href="/ModelListe.php">Moda Sare</a>
+        <a class="navbar-brand" href="Gate.php">Moda Sare</a>
         <?php
         }else{
         ?>
-        <a class="navbar-brand" href="/index.php">Moda Sare</a>
+        <a class="navbar-brand" href="index.php">Moda Sare</a>
         <?php
         }
         ?>
@@ -49,7 +49,7 @@ include './inc/rout.php';
                 <div class="navbar-nav  ml-auto">
 
 
-                    <a class="nav-link" aria-current="page" href="ModelListe.php">Ana Sayfa</a>
+                    <a class="nav-link" aria-current="page" href="Gate.php">Ana Sayfa</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Model İşlemleri

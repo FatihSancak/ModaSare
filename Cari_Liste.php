@@ -33,6 +33,8 @@ include_once 'inc/top.php';
                     <tr>
                         <td class="text-left">
                             <a href="Cari_Liste_Detay.php?CARI_ID=<?= $cari['CARI_ID'] ?>">
+                                <span style="font-size:large "><i class="bi bi-arrow-right-circle"></i></span>
+
                                 <?= $cari['CARI_ADI'] ?></a>
                         </td>
                         <td><?= $cari['CARI_TELEFON'] ?></td>
